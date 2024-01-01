@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .second-section {
+      height: 100vh;
+      width: 100%;
+      background-color: white;
+    }
+  </style>
+  <body>
+    <h1>Chaining - Dynamically Load Animations</h1>
+
+    <div class="second-section">
+      <lottie-player
+        id="chainLoad"
+        src="https://assets5.lottiefiles.com/packages/lf20_9ZfVw0.json"
+      >
+      </lottie-player>
+    </div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.2/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        LottieInteractivity.create({
+          player: "#chainLoad",
+          mode: "chain",
+          actions: [
+            {
+              state: "click",
+              transition: "onComplete",
+            },
+            {
+              state: "autoplay",
+              transition: "onComplete",
+              path: "https://assets6.lottiefiles.com/packages/lf20_opn6z1qt.json",
+            },
+            {
+              state: "autoplay",
+              transition: "onComplete",
+              path: "https://assets9.lottiefiles.com/packages/lf20_pKiaUR.json",
+              reset: true,
+            },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
